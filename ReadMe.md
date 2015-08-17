@@ -1,25 +1,29 @@
 ---
 title: "Readme.mdR"
 author: "Greg Main"
-date: "26 July 2015"
+date: "17 August 2015"
 output: html_document
----
----
-title: "Codebook template"
-author: "Greg Main"
-date: "26 July 2015"
-output:
-  html_document:
-    keep_md: yes
 ---
 
 This repository was created to share and store the outputs from the Getting and Cleaning Data project. 
+
+## Contents of the this repository
+You will find in this repository:
+
+2. Readme.Rmd: this file
+1. CodeBook.Rmd: This contains information about the download and extraction of the raw data and the steps taken to transform the raw data into a tidy data set and then a second extracted tidy dataset
+3. run_analysis.R: R script that downloads and transforms the raw data
+4. sensor_data_subset.txt: The second extracted tidy dataset (independent tidy data set with the average of each variable for each activity and each subject) 
+
+Further descriptions of each of these are set out below
+
+Please read CodeBook.Rmd next for further details of the raw data and the individual steps taken  to transform the data
 
 ## Project Description
 
 The purpose of this project is to demonstrate the ability to collect, work with, and clean a data set. The goal is to prepare tidy data that can be used for later analysis. The project was graded by our peers on a series of yes/no questions related to the project. 
 
-The project requires the submission of 
+The project required the submission of 
 
 1. a tidy data set as described below
 2. a link to a Github repository with the script for performing the analysis
@@ -38,18 +42,11 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 ## Requirements of the script and the tidy data set
 An R script called run_analysis.R is required. It needs to do the following. 
 
-1. Merges the training and the test sets to create one data set.
-2. Extracts only the measurements on the mean and standard deviation for each measurement. 
-3. Uses descriptive activity names to name the activities in the data set
-4. Appropriately labels the data set with descriptive variable names. 
-5. Creates from step 4 a second, independent tidy data set with the average of each variable for each activity and each subject.
-
-## Contents of the this repository
-You will find in this repository
-
-1. CodeBook.Rmd: This contains information about the raw and tidy data set and steps taken to transform them
-2. Readme.Rmd: this file
-3. run_analysis.R: R script that downloads and transforms the raw data, into a tidy one
+1. Merge the training and the test sets to create one data set.
+2. Extract only the measurements on the mean and standard deviation for each measurement. 
+3. Use descriptive activity names to name the activities in the data set
+4. Appropriately label the data set with descriptive variable names. 
+5. Create from step 4 a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 ## Important requirements and source data considerations
 The script requires plyr, dplyr and reshape2 packages to be installed and present in order to run. The script assumes that these packages are installed and automatically runs the libray commands as required. Please ensure you have installed these packages before running the script 

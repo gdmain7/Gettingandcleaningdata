@@ -1,8 +1,11 @@
+---
+output: word_document
+---
 # Codebook for Getting and Cleaning Data project
 Greg Main  
-26 July 2015  
+17 August 2015  
 
-## Project Description
+#Project Description
 Demonstrate the ability to collect, work with, and clean a data set. The goal is to prepare tidy data that can be used for later analysis.
 
 #Raw data
@@ -95,38 +98,44 @@ The raw data set included the following files
 
 #Creating the tidy datafile
 
-The raw data is downloaded and transformed into a tidy data set with the run_analysis.R script 
+The raw data is downloaded and transformed into a tidy data set by running the run_analysis.R script 
 
-###Loading the raw datasets
-1. The data set was downloaded from the following link https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Data set.zip
+###Downloading the raw datasets
+1. The data set is downloaded from the following link https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Data set.zip
 2. The zip archive is unzipped to a folder ./data/UCI HAR Data set
 3. The script then sets the working directory to ./data
 
 ### Reading in the datasets
 The script reads in the following datasets from the zip archive (see above file list for the descriptions of each file)
 
-1. Features and activity column label files
-+ features.txt
-+ activity_labels.txt
+ 1. Features and activity column label files
+   - features.txt (read in as features)
+   - activity_labels.txt (read in as activity_labels)
 
-2. Data, activity labels and subject ID data for Test data set
-+ X_test.txt
-+ y_test.txt
-+ subject_test.txt
+ 2. Data, activity labels and subject ID data for Test data set
+   - X_test.txt (read in as x_test)
+   - y_test.txt (read in as y_test)
+   - subject_test. txt (read in as subject_test)
 
-3. Data, activity labels and subject ID data for Train data set
-+ X_train.txt
-+ y_train.txt
-+ subject_train.txt
+ 3. Data, activity labels and subject ID data for Train data set
+   - X_train.txt (read in as x_train)
+   - y_train.txt (read in as y_train)
+   - subject_train.txt (read in as subject_train)
 
 ### Adding column names
-1. Add names to columns in the features (features_id, features_name) and activity (activity_id, activity_name) attributes files
+1. Manually add identifying names to columns in the features dataset (features_id and features_name)
 
-2. Add names to columns in the activity and subject ID files for both train and testing
-+ for y_test and y_train added column name activity_id
-+ for subject_test and subject_train added column name subject_id
+2. Manually add identifying names to columns in the activity_labels dataset (activity_id, activity_name)
 
-3. Using the list of names included in the features file (561 fields), label the 561 columns of data in the x_test and x_train data
+2. Manually add identifying names to columns in the activity and subject ID datasets for test datasets (number 2 above)
++ for y_test add a column name activity_id
++ for subject_test add a column name subject_id
+
+2. Manually add identifying names to columns in the activity and subject ID datasets for train datasets (number 3 above)
++ for y_train add a column name activity_id
++ for subject_train add a column name subject_id
+
+3. Using the list of names included in the features dataset (containing 561 entries) and use this to label the 561 columns of data in the x_test and x_train datasets
 
 ### Merging the training and test datasets 
 
@@ -137,7 +146,7 @@ Combine the 6 datasets as follows:
 
 The result from above is 2 datasets of 563 columns and 2947 and 7352 respectively. 
 
-3. Combine vertically these two subsequent datasets created above (using rbind) top form a merged data set of 10299 rows and 563 columns
+3. Combine vertically these two subsequent test and train datasets created above (using rbind) to form a merged data set of 10299 rows and 563 columns
 
 ### Extract only the mean and standard deviation variables
 
@@ -145,23 +154,23 @@ From the merged data set extract a trimmed data set with only the mean (variable
 
 ### Cleaning the data
 
-1. Merge the trimmed data set with the activity_name file to bring the activity names (instead of numerical references)
-2. Remove the activity_id column (as this is now redundant given it is named) 
+1. Merge the trimmed data set with the activity_name file to bring into the trimmed dataset the activity names (instead of the existing numerical references)
+2. Remove the activity_id column (as this is now redundant given it is named in the above step) 
 3. Re-label the column headings by replacing abbreviations as follows:
-+ re-label t and f with time and frequency indicators
++ re-label references to t and f with the words time and frequency
 + re-label the columns to make the titles more readable in plain language (including Acc to Accelerometer, Gyro to Gyroscope, Mag to Magnitude and BodyBody to Body)
-+ Remove the () marks after the mean and std indicators and change mean and std to Mean and StdDEv respectively
++ Remove the () marks after the mean and std indicators and change mean and std to Mean and StdDev respectively
 
 ### Description of the variables in the tidy file (sensor_data_subset.txt)
 
-The initial tidy data set prior to the creation of the final submitted file (finaldata) contained 10299 rows and 68 columns of data, including: 
+1. The initial tidy data set prior to the creation of the final submitted file (finaldata) contained 10299 rows and 68 columns of data, and included the folowing: 
 
-+ an activity label (activity_name): WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
++ an activity column (activity_name): WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
 + an identifier of the subject who carried out the experiment (subject_id): numbered 1 to 30
-+ 66 feature vector with time and frequency domain signal variables (numeric)
++ 66 columns (feature vector) with time and frequency domain signal variables (all numeric)
 
-The final tidy data set (alldatamean) outputted to sensor_data_subset.txt contained 180 rows and 68 columns of data, including: 
+2. The final tidy data set (alldatamean) comprises the average for each activity and each subject and has been outputted to sensor_data_subset.txt. This contains 180 rows and 68 columns of data, comprising: 
 
-+ an activity label (activity_name): WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
++ an activity column (activity_name): WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
 + an identifier of the subject who carried out the experiment (subject_id): numbered 1 to 30
-+ 66 feature vector with time and frequency domain signal variables (numeric)
++ 66 columns (feature vector) with time and frequency domain signal variables (numeric)
