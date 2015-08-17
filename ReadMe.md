@@ -4,20 +4,20 @@ author: "Greg Main"
 date: "17 August 2015"
 output: html_document
 ---
-
+## Purpose of this repository
 This repository was created to share and store the outputs from the Getting and Cleaning Data project. 
 
 ## Contents of the this repository
 You will find in this repository:
 
-2. Readme.Rmd: this file
-1. CodeBook.Rmd: This contains information about the download and extraction of the raw data and the steps taken to transform the raw data into a tidy data set and then a second extracted tidy dataset
+2. Readme.md: this file
+1. CodeBook.md: This contains information about the download and extraction of the raw data and the steps taken to transform the raw data into a tidy data set and then a second extracted tidy dataset
 3. run_analysis.R: R script that downloads and transforms the raw data
 4. sensor_data_subset.txt: The second extracted tidy dataset (independent tidy data set with the average of each variable for each activity and each subject) 
 
 Further descriptions of each of these are set out below
 
-Please read CodeBook.Rmd next for further details of the raw data and the individual steps taken  to transform the data
+Please read CodeBook.md next for further details of the raw data and the individual steps taken  to transform the data
 
 ## Project Description
 

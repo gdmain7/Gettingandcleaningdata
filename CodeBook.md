@@ -1,5 +1,5 @@
 ---
-output: word_document
+output: html_document
 ---
 # Codebook for Getting and Cleaning Data project
 Greg Main  
@@ -128,12 +128,12 @@ The script reads in the following datasets from the zip archive (see above file 
 2. Manually add identifying names to columns in the activity_labels dataset (activity_id, activity_name)
 
 2. Manually add identifying names to columns in the activity and subject ID datasets for test datasets (number 2 above)
-+ for y_test add a column name activity_id
-+ for subject_test add a column name subject_id
+ + for y_test add a column name activity_id
+ + for subject_test add a column name subject_id
 
 2. Manually add identifying names to columns in the activity and subject ID datasets for train datasets (number 3 above)
-+ for y_train add a column name activity_id
-+ for subject_train add a column name subject_id
+ + for y_train add a column name activity_id
+ + for subject_train add a column name subject_id
 
 3. Using the list of names included in the features dataset (containing 561 entries) and use this to label the 561 columns of data in the x_test and x_train datasets
 
